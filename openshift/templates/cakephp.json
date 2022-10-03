@@ -191,6 +191,18 @@
                     "containerPort": 8080
                   }
                 ],
+		"securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "runAsNonRoot": true,
+		  "seccompProfile": {
+                    "type": "RuntimeDefault"
+		  }
+                },
                 "readinessProbe": {
                   "timeoutSeconds": 3,
                   "initialDelaySeconds": 3,
